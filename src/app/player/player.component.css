@@ -1,0 +1,150 @@
+.player-container {  
+  background-color:red;
+  position: absolute;
+  width: 100%;
+  height: 100%;   
+  margin-left: -15px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;  
+  padding: 5px;  
+  overflow: auto;
+}
+.page-sidenav-content {
+    display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .page-sidenav {
+    padding: 20px;
+    width: 50%;
+    height: auto;
+  }
+  .filter {
+    display: flex;
+  }
+  .mat-form-field {
+    font-size: 14px;
+    width: 60%;
+    height: 100%;
+  }  
+  .line-spacer {
+    flex: 1 1 auto;
+  }
+  .page-display {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;      
+    height: 100%;
+    width: 100%;    
+    position: relative;
+    margin: 0px;
+  }
+  .mat-table {
+    display: table;
+    width: 100%;
+    position: relative;
+    height: 80%;
+    overflow: auto;    
+  }
+.mat-table > .mat-header-row, .mat-table > .mat-row {
+  display: table-row;
+  padding: 0;
+  border: none;  
+}
+.mat-table > .mat-header-row > .mat-header-cell, 
+.mat-table > .mat-row > .mat-cell {
+    display: table-cell;
+    height: 100%;    
+    vertical-align: middle;
+    padding: 0 0.5em;
+    word-wrap: break-word;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    font-size: 2.5vh;    
+}
+.mat-cell, .mat-header-cell {  
+  word-wrap: break-word;  
+}
+.filter {
+  height: 10%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;      
+}
+.mat-elevation-z8 {
+  display: flex;
+  flex-direction: column;
+  height : 80%;
+  position: relative;  
+  overflow: auto;
+}
+.button-column {
+  height: 10%;
+  position: relative;         
+}
+.paginator {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  position: relative;
+}
+.player-title {
+  height: 5%;
+  width: 100%;
+  position: relative;
+  display: flex;  
+  flex: 1 1 auto;
+  
+}
+.player-body {
+  height: 95%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;  
+}
+.mat-sidenav-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/** Unused styles
+.panel-primary {
+  border-bottom-color: rgb(104, 147, 167);
+  border-top-color: rgb(104, 147, 167);
+  border-left-color: rgb(104, 147, 167);
+  border-right-color: rgb(104, 147, 167);
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;    
+  width: 100%;
+  height: 100%;  
+  margin: 0px;
+  padding: 0px;
+  background-color: orange;
+}  
+.panel > .panel-heading 
+{
+background-color: rgb(104, 147, 167);
+font-size: 20px; 
+        
+}
+.panel-body {
+background-color: green;
+height: 100%;
+position: relative;
+display: flex;
+flex-direction: column;
+flex: 1 1 auto;
+overflow-y: auto;    
+
+}
+**/

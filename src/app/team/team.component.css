@@ -1,0 +1,42 @@
+.team-container {
+    
+    background-color:white;
+    position: absolute;
+    width: 100%;
+    height: 100%;   
+    margin-left: -15px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;  
+    padding: 5px;  
+}
+.example-container {
+    position: absolute;
+    min-height: auto;
+    height: 100%;
+    width: 100%;
+    
+    }
+.flex-display {
+    display: flex;
+    flex-direction: column;
+}
+.page-sidenav-content {
+    display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .page-sidenav {
+    padding: 20px;
+    width: 40%;
+    height: auto;
+    display: flex;
+  } 
+  .grid-border {
+    border-bottom-color: rgb(104, 147, 167);
+    border-top-color: rgb(104, 147, 167);
+    border-left-color: rgb(104, 147, 167);
+    border-right-color: rgb(104, 147, 167);
+  }

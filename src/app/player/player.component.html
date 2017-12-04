@@ -1,0 +1,53 @@
+<div class="player-container">
+  <div class="player-title">
+    <mat-icon>person_add</mat-icon>
+    <span class="line-spacer"> {{pageTitle}}</span>
+  </div>
+  <div class="player-body">
+    <mat-sidenav-container>
+      <mat-sidenav #sidenav class="page-sidenav">
+        <!-- Side Navigation Window -->
+        <div>
+          <mat-form-field>
+            <mat-select placeholder="Reports" [formControl]="reports" multiple>
+              <mat-option *ngFor="let testValue of testValues" [value]="testValue">{{testValue}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-icon matSuffix>access_time</mat-icon>
+            <input type="time" matInput placeholder="Time">
+          </mat-form-field>
+        </div>
+      </mat-sidenav>
+      <div class="filter">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+      </div>
+      <div class="mat-elevation-z8">
+        <mat-table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> email </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;">
+          </mat-row>
+        </mat-table>
+        <mat-paginator flex [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      </div>
+      <div class="button-column" layout-align="end end" style="text-align:right">
+        <button mat-raised-button value="" color="primary" (click)="sidenav.open()">Update</button>
+        <button mat-raised-button value="" color="primary">Update2</button>
+      </div>
+    </mat-sidenav-container>
+  </div>
+</div>

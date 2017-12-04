@@ -1,0 +1,27 @@
+<div class="team-container" >      
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav class="page-sidenav" (close)="getInputList()">
+      <!-- Side Navigation Window -->
+      <div class="flex-display">
+        <mat-form-field>
+          <mat-select placeholder="Reports" [formControl]="reports" multiple>
+            <mat-option *ngFor="let testValue of testValues" [value]="testValue">{{testValue}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-icon matSuffix>access_time</mat-icon>
+          <input type="time" matInput placeholder="Time">
+        </mat-form-field>
+      </div>
+    </mat-sidenav>
+    <mat-tab-group class="demo-tab-group">
+      <mat-tab *ngFor="let list of reportsList" label= "{{ list }}">
+      </mat-tab>      
+    </mat-tab-group>
+
+    <div class="button-column" layout-align="end end" style="text-align:right">
+      <button mat-raised-button value="" color="primary" (click)="sidenav.open()">Select Reports</button>
+    </div>
+  </mat-sidenav-container>
+
+</div>

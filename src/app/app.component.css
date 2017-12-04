@@ -1,0 +1,50 @@
+.line-spacer {
+  flex: 1 1 auto;
+}
+.icon-spacer {
+  display: flex;
+}
+.page-icon {
+  padding: 0 5px;
+}
+.page-header {
+  display:flex;
+  width: 100%;
+  height: 10%;  
+}
+.button-fab {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+}
+.container {
+  height: 86.5%;
+  display: flex;
+  flex-direction: column;  
+  position: absolute;  
+  width: 100%;    
+  background-color: rgb(238, 255, 0);
+  flex: 1 1 auto; 
+}
+
+.example-button-row {
+  display: flex; 
+  align-items: center;
+  justify-content: space-around;   
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 30%;
+}
+.mat-table {
+  overflow: auto;
+  max-height: 50%;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+
+                                                                                                                                  
