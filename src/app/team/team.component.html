@@ -1,5 +1,6 @@
 <div class="team-container" >      
-  <mat-sidenav-container class="example-container">
+
+  <mat-sidenav-container>
     <mat-sidenav #sidenav class="page-sidenav" (close)="getInputList()">
       <!-- Side Navigation Window -->
       <div class="flex-display">
@@ -14,8 +15,11 @@
         </mat-form-field>
       </div>
     </mat-sidenav>
-    <mat-tab-group class="demo-tab-group">
+    <mat-tab-group class="team-body">
       <mat-tab *ngFor="let list of reportsList" label= "{{ list }}">
+          
+        abc
+      
       </mat-tab>      
     </mat-tab-group>
 

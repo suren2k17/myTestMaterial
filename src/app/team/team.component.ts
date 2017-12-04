@@ -9,11 +9,10 @@ import { FormControl } from '@angular/forms';
   encapsulation: ViewEncapsulation.None
 })
 export class TeamComponent implements OnInit {
-  tiles = [
-    {text: 'One', cols: 1, rows: 2, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 2, color: 'lightpink'},
-    {text: 'Four', cols: 1, rows: 2, color: '#DDBDF1'},
+  receivingReports = [
+    {name: 'Backout Report', method: "GET", url: 2, color: 'lightblue'},
+    {name: 'Reprint Report', method: "POST", url: 2, color: 'lightgreen'},
+    {name: 'Docktag Report', method: "POST", url: 2, color: 'lightpink'}     
   ];
   testValues = ['Report1', 'Report2', 'Report3'];
   reports = new FormControl();
