@@ -47,7 +47,7 @@ export class PlayerComponent implements OnInit {
         console.log(" Logging Value : " + Object.keys(this.players[0]));
       },
       error => this.errorMessage = <any>error);
-      
+
     this.autoReload();
     this.interval = setInterval(() => {
       this.autoReload();
@@ -65,33 +65,48 @@ export class PlayerComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  parseReportObject(obj){
+  parseReportObject(obj) {
     var reportData: any;
-    if( obj.constructor.name == "Object" )
-    {
+    if (obj.constructor.name == "Object") {
       //console.log(obj.constructor.name);
       var i = 0;
       var objects = Object.keys(obj);
-      var nestedValue : string = null;
-      for ( let object of  Object.keys(obj))  {        
+      var nestedValue: string = this.parseRecursiveForObject(obj);
 
-        if ( i == 0) {        
-          nestedValue = object + " : " + obj[object] + "\n";    
-        } else {
-          nestedValue = nestedValue + object + " : " + obj[object] + "\n";        
-        }
-        i = i + 1;
-      }
-      console.log ( "Final Value after For Loop : " + nestedValue );
+
+      //console.log("Final Value after For Loop : " + nestedValue);
       //console.log("PURE Objects2 in for loop: " + Object.entries(Object.keys(obj)));        
       //reportData = Object.keys(obj).map((key)=>{ return obj[key]});
       reportData = nestedValue;
     }
-    else
-    {
+    else {
       //console.log("Non Objects3 : " + Object.keys(obj).map((key)=>{ return obj[key]}));
       reportData = obj;
     }
     return reportData;
- }
+  }
+
+  parseRecursiveForObject(object): string {
+
+    var returnObject: string = null;
+    var i = 0;
+    //recursively parsing nested objects 
+    for (let element of Object.keys(object)) {
+      //console.log("element type : " + object[element].constructor.name);
+      if( object[element].constructor.name == "Object") {
+        //console.log("Found recursiv eObject : " + element);
+        returnObject = returnObject + "("+ element + ")\n";
+        returnObject = returnObject + this.parseRecursiveForObject(object[element]);
+        i = i + 1;
+        break;
+      } 
+      if (i == 0) {
+        returnObject = element + " : " + object[element] + "\n";
+      } else {
+        returnObject = returnObject + element + " : " + object[element] + "\n";
+      }
+      i = i + 1;
+    }
+    return returnObject;
+  }
 }
