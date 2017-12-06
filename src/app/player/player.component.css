@@ -63,6 +63,7 @@
     word-wrap: break-word;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     font-size: 2.5vh;    
+    overflow: auto;
 }
 .mat-cell, .mat-header-cell {  
   word-wrap: break-word;  

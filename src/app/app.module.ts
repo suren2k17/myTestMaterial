@@ -29,6 +29,8 @@ import { PlayerComponent } from './player/player.component';
 import { Component } from '@angular/core/src/metadata/directives';
 import { TeamComponent } from './team/team.component';
 import { HomeComponent } from './home/home.component';
+import { PlatformModule } from '@angular/cdk/platform';
+import { DomSanitizer } from '@angular/platform-browser/src/security/dom_sanitization_service';
 
 
 
@@ -62,6 +64,7 @@ import { HomeComponent } from './home/home.component';
     MatSelectModule,
     MatGridListModule,
     MatSortModule,
+    PlatformModule,    
     RouterModule.forRoot([
       {path: 'player', component: PlayerComponent},
       {path: 'team', component: TeamComponent},

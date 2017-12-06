@@ -14,7 +14,7 @@ export class TeamComponent implements OnInit {
     {name: 'Reprint Report', method: "POST", url: 2, color: 'lightgreen'},
     {name: 'Docktag Report', method: "POST", url: 2, color: 'lightpink'}     
   ];
-  testValues = ['Report1', 'Report2', 'Report3'];
+  testValues = ['Report1', 'Report2', 'Report3', 'Report4', 'Report5', 'Report6'];
   reports = new FormControl();
   reportsList : any[];
   customHeight = window.innerHeight;

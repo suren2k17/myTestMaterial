@@ -1,14 +1,10 @@
 export interface IPlayerInterface {
-    id: string;
-    name: string;
-    email: string;
+    dataResponse: any[];
 }
 
 export class Player implements IPlayerInterface {
     
-    id: string;
-    name: string;
-    email: string;
+    dataResponse: any[];
        
     /* constructor (public id: string,
     public name: string,
