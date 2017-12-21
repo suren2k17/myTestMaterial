@@ -1,0 +1,25 @@
+<div class="ui-g">
+
+    <p-panel class="ui-g-12 ui-md-6">
+        <p-header>
+            <div class="ui-helper-clearfix">
+                <span class="ui-panel-title" style="font-size:16px;display:inline-block;margin-top:0px">SAMPLE GRAPH</span>
+
+                <button mat-icon-button class="float-right" (click) = "onToggleChart()">
+                    <div ngif = "!chart">
+                    <mat-icon>view_list</mat-icon>
+                </div>
+                </button>
+                <button mat-icon-button class="float-right">
+                    <mat-icon>visibility_off</mat-icon>
+                </button>
+
+            </div>
+        </p-header>
+
+        <p-chart type="bar" [data]="reportChartData" [options]="chartOptions"></p-chart>
+        <p-footer>
+            sample
+        </p-footer>
+    </p-panel>
+</div>

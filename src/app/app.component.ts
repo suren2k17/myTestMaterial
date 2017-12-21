@@ -11,7 +11,13 @@ import { IMenudisplay } from './menu-display';
   providers: []
 })
 export class AppComponent {
+  
   displayMenu: IMenudisplay[] = [
+    {
+      "name": "Configure Reports",
+      "icon": "view_list",
+      "page": "configure"
+    },
     {
       "name": "Manage Team",
       "icon": "group_add",
@@ -28,6 +34,7 @@ export class AppComponent {
       "page": "feedback"
     }
   ]
+  
   constructor(
     private _router: Router,
     private _route: ActivatedRoute) {

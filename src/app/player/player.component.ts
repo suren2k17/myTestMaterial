@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild, Input } from '@angular/core';
 import { IPlayerInterface } from './player-interface';
 import { PlayerService } from './player-service';
 import { error } from 'util';
@@ -16,11 +16,13 @@ import { DomSanitizer } from '@angular/platform-browser';
   encapsulation: ViewEncapsulation.None
 })
 export class PlayerComponent implements OnInit {
+  @Input() reportObj: Object = null;
   interval: NodeJS.Timer;
   pageTitle = "MANAGE PLAYERS";
   errorMessage: any;
-  displayedColumns = ['address'];
-  testValues = ['List1', 'List2', 'List3'];
+  displayedColumns = [];  
+  columnToGroup = new FormControl();
+
   reports = new FormControl();
   dataSource: MatTableDataSource<IPlayerInterface>;
   players: IPlayerInterface[] = [];
@@ -35,8 +37,9 @@ export class PlayerComponent implements OnInit {
   ngOnInit() {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-
-    this._playerService.getUsers()
+    console.log("Input passed : " + this.reportObj);
+    //console.log("inspecting object: " + Object.values(this.reportObj)[3]);
+    this._playerService.getUsers(this.reportObj)      
       .subscribe(players => {
         this.players = players;
         this.dataSource = new MatTableDataSource(players);
@@ -47,7 +50,6 @@ export class PlayerComponent implements OnInit {
         console.log(" Logging Value : " + Object.keys(this.players[0]));
       },
       error => this.errorMessage = <any>error);
-
     this.autoReload();
     this.interval = setInterval(() => {
       this.autoReload();
@@ -56,13 +58,18 @@ export class PlayerComponent implements OnInit {
 
   autoReload(): void {
     console.log("Refreshing the service");
-    this._playerService.getUsers();
+    //this._playerService.getUsers();
+  }
+
+  getGroupBy():void {
+    console.log("value selected : " + this.columnToGroup.value);
+    
   }
 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-    this.dataSource.filter = filterValue;
+    this.dataSource.filter = filterValue;    
   }
 
   parseReportObject(obj) {
@@ -71,16 +78,10 @@ export class PlayerComponent implements OnInit {
       //console.log(obj.constructor.name);
       var i = 0;
       var objects = Object.keys(obj);
-      var nestedValue: string = this.parseRecursiveForObject(obj);
-
-
-      //console.log("Final Value after For Loop : " + nestedValue);
-      //console.log("PURE Objects2 in for loop: " + Object.entries(Object.keys(obj)));        
-      //reportData = Object.keys(obj).map((key)=>{ return obj[key]});
-      reportData = nestedValue;
+      var nestedValue: string = this.parseRecursiveForObject(obj);      
+      reportData = nestedValue.trim();
     }
-    else {
-      //console.log("Non Objects3 : " + Object.keys(obj).map((key)=>{ return obj[key]}));
+    else {      
       reportData = obj;
     }
     return reportData;

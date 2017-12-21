@@ -1,0 +1,64 @@
+p-panel >>> .ui-panel {
+    margin-top: 1em;
+    width: 98%;
+    height: 100%;
+  }
+  
+  .ui-g {
+    padding: 4px;
+  }
+  
+  .ui-panel-content {
+    width : 100%;
+    height : 100%;
+    position: relative;
+  }
+  .chartjs-render-monitor {
+    height: 100%;
+    width: 100%;
+  
+  }
+  canvas{
+    width: 100% !important;
+    
+    height: auto !important;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+  }
+  
+  #statistic {
+  
+    width: 300px;
+    color: white;
+    text-align: center;
+    font-family: "Roboto";
+    background-color: #00ACAC;
+  }
+  
+  .icon {
+    font-size: 80px;
+    margin: 0px;
+    padding: 5px;
+    background:rgba(0,0,0,.1);
+  }
+  
+  .data {
+    padding: 1em;
+    vertical-align: middle;
+  }
+  
+  .value {
+    font-size: 40px;
+  }
+  
+  .label {
+    text-transform: uppercase;
+  }
+  .line-spacer {
+    flex: 1 1 auto;
+  }
+  .float-right {
+    float: right;
+    margin-top: 0px;
+  }

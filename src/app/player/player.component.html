@@ -1,9 +1,5 @@
-<div class="player-container">
-  <div class="player-title">
-    <mat-icon>person_add</mat-icon>
-    <span class="line-spacer"> {{pageTitle}}</span>
-  </div>
-  <div class="player-body">
+<div class="player-container">  
+  
     <mat-sidenav-container>
       <mat-sidenav #sidenav class="page-sidenav">
         <!-- Side Navigation Window -->
@@ -23,6 +19,11 @@
         <mat-form-field>
           <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
         </mat-form-field>
+        <mat-form-field>
+            <mat-select placeholder="Group By" [formControl]="columnToGroup" (change)="getGroupBy()">
+              <mat-option *ngFor="let column of displayedColumns" [value]="column" >{{column}}</mat-option>
+            </mat-select>
+          </mat-form-field>          
       </div>
       <div class="mat-elevation-z8">
         <mat-table [dataSource]="dataSource" matSort>
@@ -35,11 +36,7 @@
           </mat-row>
         </mat-table>
         <mat-paginator flex [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-      </div>
-      <div class="button-column" layout-align="end end" style="text-align:right">
-        <button mat-raised-button value="" color="primary" (click)="sidenav.open()">Update</button>
-        <button mat-raised-button value="" color="primary">Update2</button>
-      </div>
-    </mat-sidenav-container>
-  </div>
+      </div>            
+    </mat-sidenav-container>  
+        
 </div>

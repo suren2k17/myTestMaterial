@@ -1,4 +1,4 @@
-<div class="team-container" >      
+<div class="team-container">      
 
   <mat-sidenav-container>
     <mat-sidenav #sidenav class="page-sidenav" (close)="getInputList()">
@@ -6,7 +6,7 @@
       <div class="flex-display">
         <mat-form-field>
           <mat-select placeholder="Reports" [formControl]="reports" multiple>
-            <mat-option *ngFor="let testValue of testValues" [value]="testValue">{{testValue}}</mat-option>
+            <mat-option *ngFor="let report of reportsAll" [value]="report">{{report.name}}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field>
@@ -14,17 +14,16 @@
           <input type="time" matInput placeholder="Time">
         </mat-form-field>
       </div>
-    </mat-sidenav>
+    </mat-sidenav>    
     <mat-tab-group class="team-body">
-      <mat-tab *ngFor="let list of reportsList" label= "{{ list }}">
-          
-        abc
-      
+      <mat-tab *ngFor="let list of reportsList" label= "{{ list.name }}"  >            
+        <app-player [reportObj]=list></app-player>      
       </mat-tab>      
-    </mat-tab-group>
-
+    </mat-tab-group> 
     <div class="button-column" layout-align="end end" style="text-align:right">
-      <button mat-raised-button value="" color="primary" (click)="sidenav.open()">Select Reports</button>
+      <button mat-mini-fab color="primary" (click)="sidenav.open()">
+        <mat-icon>add</mat-icon>
+      </button>
     </div>
   </mat-sidenav-container>
 

@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
-
+import { PanelModule, ChartModule, ButtonModule, SplitButtonModule } from 'primeng/primeng';
+import { chart } from 'chart.js';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatToolbar, MatToolbarModule, 
   MatTabsModule,
@@ -16,10 +16,8 @@ import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatToolbar, MatT
   MatOptionModule,
   MatSelectModule,
   MatGridListModule,
-  MatSortModule
-  
+  MatSortModule  
   } from '@angular/material';
-
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Http, HttpModule } from '@angular/http';
@@ -31,7 +29,10 @@ import { TeamComponent } from './team/team.component';
 import { HomeComponent } from './home/home.component';
 import { PlatformModule } from '@angular/cdk/platform';
 import { DomSanitizer } from '@angular/platform-browser/src/security/dom_sanitization_service';
-
+import { TestRouteComponent } from './test-route/test-route.component';
+import { ConfigureReportsComponent } from './configure-reports/configure-reports.component';
+import { ManageDashboardComponent } from './manage-dashboard/manage-dashboard.component';
+import { ChartComponent } from './chart/chart.component';
 
 
 @NgModule({
@@ -39,7 +40,11 @@ import { DomSanitizer } from '@angular/platform-browser/src/security/dom_sanitiz
     AppComponent,
     PlayerComponent,
     TeamComponent,
-    HomeComponent
+    HomeComponent,
+    TestRouteComponent,
+    ConfigureReportsComponent,
+    ManageDashboardComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
@@ -65,10 +70,16 @@ import { DomSanitizer } from '@angular/platform-browser/src/security/dom_sanitiz
     MatGridListModule,
     MatSortModule,
     PlatformModule,    
+    PanelModule,
+    ButtonModule,
+    ChartModule,    
+    SplitButtonModule,
     RouterModule.forRoot([
-      {path: 'player', component: PlayerComponent},
+      {path: 'player', component: PlayerComponent},     
       {path: 'team', component: TeamComponent},
-      {path: 'home', component: HomeComponent},
+      {path: 'home', component: HomeComponent},       
+      {path: 'configure', component: ConfigureReportsComponent },  
+      {path: 'dashboard', component: ManageDashboardComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: '**', component: HomeComponent}
     ]),
@@ -77,7 +88,6 @@ import { DomSanitizer } from '@angular/platform-browser/src/security/dom_sanitiz
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-  
+export class AppModule {  
   
  }
